@@ -13,13 +13,13 @@ from django.contrib.messages import constants as message_constants
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-<<<<<<< HEAD
+
 
 PROJECT_DIR = Path(__file__).parent
-=======
+
 BASE_DIR = Path(__file__).parent
 CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
->>>>>>> f4c5c06f3b066be10f1adc79599c96e39718a61c
+
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -128,11 +128,9 @@ USE_TZ = True
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> f4c5c06f3b066be10f1adc79599c96e39718a61c
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(CORE_DIR, 'staticfiles')
