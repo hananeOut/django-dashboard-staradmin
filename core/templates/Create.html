@@ -1,0 +1,239 @@
+ {% extends "layouts/base.html" %}
+
+{% block title %} Create consultations/Fonctionnement {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+
+
+
+ <html lang="en" xmlns="http://www.w3.org/1999/html">
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+<!-- Bootstrap CSS -->
+  {% block content %}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+
+ <form id="demoForm" method="post"  action = "" class="post-form" enctype="multipart/form-data">
+ {% csrf_token %}
+
+             <div class="content-wrapper">
+                 <div class="row">
+                     <div class="col-md-12 grid-margin stretch-card">
+                         <div class="card">
+                             <div class="card-body">
+                                 <h3>Suivi des consultations/Budget de fonctionnement </h3>
+                                 <br>
+                                 <form class="forms-sample">
+                                     <div class="row">
+                                         <div class="col-md-12">
+                                             <div class="form-group row">
+                                                 <label class="col-md-2 col-form-label" >Nouvelle/Relance procédure</label>
+                                                 <div class="col-md-3">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="Nouvelle_Relance" id="lanceRadios1" value="Nouvelle procédure" checked> Nouvelle procédure </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="col-md-3">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="Nouvelle_Relance" id="relanceRadios2" value="Relance procédure"> Relance procédure </label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="number1" >N° de dossier</label>
+                                                 <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="N_Dossier" id="number1" placeholder="000/AAAA"  pattern="[0-9]{1,}/[0-9]{4}" title="Code de dossier doit etre numéro/année "  />
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Ancien N° de dossier</label>
+                                                 <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="A_N_Dossier" id="number" placeholder="000/AAAA"  pattern="[0-9]{1,}/[0-9]{4}" title="Code de dossier doit etre numéro/année "   />
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Désignation</label>
+                                                 <div class="col-sm-9">
+                                                     <textarea class="form-control" name="Designation" id="exampleDésignation" rows="2"></textarea>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" >Type d'opération</label>
+                                                 <div class="col-sm-4">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="Type_Operation" id="consultationRadios1" value="Consultation" checked> Consultation </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="col-sm-5">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="Type_Operation" id="gréRadios2" value="Gré à Gré"> Gré à Gré </label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+
+
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Nom de l'agent ayant validé la fiche technique</label>
+                                                 <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="Nom_Agent_Tech" />
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Date de validation de la fiche technique</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="md-form md-outline input-with-post-icon datepicker">
+                                                         <input placeholder="Select date" type="date" id="example" class="form-control" name="date_Fich_Tech">
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Fiche technique validée</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="custom-file">
+                                                         <input type="file" class="custom-file-input" id="Fich_TechFile" name="Fich_Tech_valid" />
+                                                         <label class="custom-file-label" for="Fich_TechFile" data-browse="Télécharger">Choisir un fichier</label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <script>
+                        // Add the following code if you want the name of the file appear on select
+                            $(".custom-file-input").on("change", function() {
+                            var Fich_TechFile = $(this).val().split("\\").pop();
+                            $(this).siblings(".custom-file-label").addClass("selected").html(Fich_TechFile);
+                            });
+                                         </script>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Date de lancement</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="md-form md-outline input-with-post-icon datepicker">
+                                                         <input placeholder="Select date" type="date" id="example1" class="form-control" name="date_Lance">
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">Date d'ouverture</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="md-form md-outline input-with-post-icon datepicker">
+                                                         <input placeholder="Select date" type="date" id="example2s" class="form-control" name="date_Ouvert">
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">PV d'ouverture</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="custom-file">
+                                                         <input type="file" class="custom-file-input" id="PV_OuvertFile" name="PV_Ouvert" />
+                                                         <label class="custom-file-label" for="PV_OuvertFile" data-browse="Télécharger">Choisir un fichier</label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <script>
+                                         // Add the following code if you want the name of the file appear on select
+                            $(".custom-file-input").on("change", function() {
+                            var PV_OuvertFile = $(this).val().split("\\").pop();
+                            $(this).siblings(".custom-file-label").addClass("selected").html(PV_OuvertFile);
+                            });
+                                         </script>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label">PV d'évaluation</label>
+                                                 <div class="col-sm-9">
+                                                     <div class="custom-file">
+                                                         <input type="file" class="custom-file-input" id="PV_EvalFile" name="PV_Eval" />
+                                                         <label class="custom-file-label" for="PV_EvalFile" data-browse="Télécharger">Choisir un fichier</label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <script>
+                                         // Add the following code if you want the name of the file appear on select
+                            $(".custom-file-input").on("change", function() {
+                            var PV_EvalFile = $(this).val().split("\\").pop();
+                            $(this).siblings(".custom-file-label").addClass("selected").html(PV_EvalFile);
+                            });
+                                         </script>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" >Système d'évaluation</label>
+                                                 <div class="col-sm-4">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="System_Eval" id="SystèmenotationRadios1" value="Système de notation" checked> Système de notation </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="col-sm-5">
+                                                     <div class="form-radio">
+                                                         <label class="form-check-label">
+                                                             <input type="radio" class="form-check-input" name="System_Eval" id="LemoinsDisantRadios2" value="Le moins Disant"> Le moins Disant </label>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-4">
+                                             <a href="{% url 'marche:consultationShow' %}" class="btn btn-secondary btn-block">
+                                                 <i class="fa fa-list"></i> Retour
+                                             </a>
+                                         </div>
+                                         <div class="col-md-4">
+                                             <button type="submit" class="btn btn-primary btn-block" ><i class="fa fa-database"></i>Enregistrer</button>
+                                         </div>
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+
+ </form>
+ </html>
+{% endblock content %}

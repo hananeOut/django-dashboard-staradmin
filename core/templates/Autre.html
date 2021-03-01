@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Autre/Suivi des consultations/Fonctionnement {% endblock title %}
+
+{% block content %}
+
+   <html lang="en">
+ <!-- Required meta tags -->
+   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+   
+       <form method="post" class="post-form" enctype="multipart/form-data">
+      {% csrf_token %}
+       <nav>
+       <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-lancement-tab" data-toggle="tab" href="#nav-lancement" role="tab" aria-controls="nav-lancement" aria-selected="true">Lancer une consultation</a>
+    <a class="nav-item nav-link" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="false">Mes documents</a>
+    <a class="nav-item nav-link" id="nav-envoyer-tab" data-toggle="tab" href="#nav-envoyer" role="tab" aria-controls="nav-envoyer" aria-selected="false">A Envoyer</a>
+       </div>
+    </nav>
+    
+   <div class="tab-content" id="nav-tabContent">
+       
+    <div class="tab-pane fade show active" id="nav-lancement" role="tabpanel" aria-labelledby="nav-lancement-tab">
+
+       <div class="row">
+	   <div class="col-12 grid-margin">    
+        <div class="card text-center">
+         <div class="card-body">
+          <h2 class="card-title">Suivi des consultations/Budget de fonctionnement</h2>
+           <form class="forms-sample">
+             
+              <div class="row">
+                <div class="col-md-12">
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Observations(Autres)</label>
+                  <div class="col-sm-10">
+                      <textarea class="form-control" id="exampleDésignation" rows="2"></textarea>
+                  </div>
+                 </div>
+                </div>
+               </div>
+                     
+              <div class="row">
+              <div class="col-md-12">
+               <button type="submit" class="btn btn-primary btn-lg ">Enregistrer</button>
+               <button type="submit" class="btn btn-primary btn-lg">Modifier</button>
+              </div>
+            </div>
+            
+            
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+     </div>
+    
+
+   <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">...</div>
+  <div class="tab-pane fade" id="nav-envoyer" role="tabpanel" aria-labelledby="nav-envoyer-tab">...</div>
+  
+  </div>
+  
+        </form>
+   </html>
+  {% endblock content %}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Dashboard</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.python.pydev.PyDevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.python.pydev.pythonNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>core/templates/Accept.html</name>
+			<type>1</type>
+			<location>D:/marche/Accept.html</location>
+		</link>
+		<link>
+			<name>core/templates/Autre.html</name>
+			<type>1</type>
+			<location>D:/marche/Autre.html</location>
+		</link>
+		<link>
+			<name>core/templates/FonCon.html</name>
+			<type>1</type>
+			<location>D:/marche/FonCon.html</location>
+		</link>
+		<link>
+			<name>core/templates/Infruc.html</name>
+			<type>1</type>
+			<location>D:/marche/Infruc.html</location>
+		</link>
+		<link>
+			<name>core/templates/includes/sidebar.html</name>
+			<type>1</type>
+			<location>D:/marche/sidebar.html</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,0 +1,129 @@
+ {% extends "layouts/base.html" %}
+
+{% block title %} Create consultations/Fonctionnement {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+
+
+
+ <html lang="en" xmlns="http://www.w3.org/1999/html">
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ {% block content %}
+    <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+
+ <form method="post"  action = "" class="post-form" enctype="multipart/form-data">
+ {% csrf_token %}
+
+             <div class="content-wrapper">
+                 <div class="row">
+                     <div class="col-md-12 grid-margin stretch-card">
+                         <div class="card">
+                             <div class="card-body">
+                                 <h3>Suivi des consultations/Budget de fonctionnement </h3>
+                                 <br>
+                                 <h5>Modifier un soumissionnaire</h5>
+                                 <form class="forms-sample">
+                                                  <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Identification de l'opérateur</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" value="{{ soumissionnaire.Iden_Ope}}"  name="Iden_Ope"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Raison Sociale</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" value="{{ soumissionnaire.Raison_Soci}}"  name="Raison_Soci"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Statut Juridique</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" value="{{ soumissionnaire.Statut_Juri}}"  name="Statut_Juri"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="phone">Téléphone</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="tel" id="phone" class="form-control" value="{{ soumissionnaire.N_Tele}}"  name="N_Tele"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="fax">Fax</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="tel" id="fax" class="form-control" value="{{ soumissionnaire.N_Fax}}"  name="N_Fax"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                          <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="exampleInputEmail1">Email</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="email" id="exampleInputEmail1" class="form-control" value="{{ soumissionnaire.Email}}" name="Email"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class = "row">
+                                         <div class="col-md-4">
+                                             <a href="{% url 'marche:SoumissionCreate' %}" class="btn btn-secondary btn-block ">
+                                                 <i class="fa fa-list"></i> Retour
+                                             </a>
+                                         </div>
+                                         <div class="col-md-4">
+                                             <a href="#myModal" class="btn btn-primary btn-block" data-toggle="modal"><i class="fa fa-database"></i>Sauvegarder</a>
+                                         </div>
+                                         <div id="myModal" class="modal fade">
+                                             <div class="modal-dialog" role="document">
+                                                 <div class="modal-content">
+                                                     <div class="modal-header">
+                                                         <h5 class="modal-title">Etes vous s?res?</h5>
+                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                             <span aria-hidden="true">&times;</span>
+                                                         </button>
+                                                     </div>
+                                                     <div class="modal-body">
+                                                         <p>Voulez-vous vraiment modifier cette Soumissionnaire?</p>
+                                                     </div>
+                                                     <div class="modal-footer">
+                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                         <button type="submit" class="btn btn-danger">Modifier</button>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+ </form>
+ </html>
+{% endblock content %}

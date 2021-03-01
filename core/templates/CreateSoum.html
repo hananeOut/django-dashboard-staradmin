@@ -1,0 +1,145 @@
+ {% extends "layouts/base.html" %}
+
+{% block title %} Create Soumissionnaire/Fonctionnement {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+
+
+
+ <html lang="en" xmlns="http://www.w3.org/1999/html">
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+<!-- Bootstrap CSS -->
+  {% block content %}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+
+ <form id="demoForm" method="post"  action = "" class="post-form" enctype="multipart/form-data">
+ {% csrf_token %}
+             <div class="content-wrapper">
+                 <div class="row">
+                     <div class="col-md-12 grid-margin stretch-card">
+                         <div class="card">
+                             <div class="card-body">
+                                 <h3>Suivi des consultations/Budget de fonctionnement </h3>
+                                 <p class="lead font-italic">Enregistrer des soumissionnaires </p>
+                                 <form class="forms-sample">
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Identification de l'opérateur</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="Iden_Ope"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Raison Sociale</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="Raison_Soci"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3  col-form-label" >Statut Juridique</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="text" class="form-control" name="Statut_Juri"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="phone">Téléphone</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="tel" id="phone" class="form-control" name="N_Tele"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="fax">Fax</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="tel" id="fax" class="form-control" name="N_Fax"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                          <div class="col-md-6">
+                                             <div class="form-group row">
+                                                 <label class="col-sm-3 col-form-label" for="exampleInputEmail1">Email</label>
+                                                  <div class="col-sm-9">
+                                                     <input type="email" id="exampleInputEmail1" class="form-control" placeholder="Enter email" name="Email"/>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="row">
+                                         <div class="col-md-4">
+                                             <a href="{% url 'marche:consultationShow' %}" class="btn btn-secondary btn-block">
+                                                 <i class="fa fa-list"></i> Retour
+                                             </a>
+                                         </div>
+                                         <div class="col-md-4">
+                                             <button type="submit" class="btn btn-primary btn-block" ><i class="fa fa-database"></i>Enregistrer</button>
+                                         </div>
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+     </form>
+ <div class="content-wrapper">
+     <div class="row">
+         <div class="col-md-12 grid-margin stretch-card">
+             <div class="card">
+                 <div class="card-body">
+                     <p class="lead font-italic">Listes des soumissionnaires </p>
+                     <table class="table table-borderless">
+                         <thead class="border-bottom font-weight-bold">
+                         <tr>
+                             <th>Numéro de consultation</th>
+                             <th>Identification de l'opérateur</th>
+                             <th>Raison Sociale</th>
+                             <th>Statut Juridique</th>
+                             <th>Téléphone</th>
+                         </thead>
+                         <tbody>
+                         <tr>
+                             {% for soumi in ls_soumissionnaire %}
+                             <td>{{soumi.Con_id.N_Dossier}} </td>
+                             <td>{{soumi.Iden_Ope}}</td>
+                             <td>{{soumi.Raison_Soci}}</td>
+                             <td>{{soumi.Statut_Juri}}</td>
+                             <td>{{soumi.N_Tele}}</td>
+                             <td>
+                                 <a style="padding-left:30px;" href="{% url 'marche:SoumissionUpdate' soumi.id %}" class="d-inline" >
+                                     <i class="fa fa-pencil-square-o fa-lg "></i>
+                                 </a>
+                             </td>
+                         </tr>
+                         {% endfor %}
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ </html>
+{% endblock content %}

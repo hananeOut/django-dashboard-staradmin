@@ -7,10 +7,15 @@ import os
 from decouple import config
 from unipath import Path
 import dj_database_url
+from django.contrib.messages import constants as message_constants
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 PROJECT_DIR = Path(__file__).parent
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
@@ -25,12 +30,16 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'admin_interface',
+    'colorfield',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'  # Enable the inner app 
+
+    'marche',
+
 ]
 
 MIDDLEWARE = [
@@ -60,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+
             ],
         },
     },
@@ -112,7 +123,7 @@ USE_TZ = True
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -123,5 +134,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'core/static'),
 )
+MEDIA_ROOT = os.path.join(BASE_DIR, 'documents')
+MEDIA_URL = '/documents/'
+
 #############################################################
 #############################################################

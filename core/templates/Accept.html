@@ -1,0 +1,237 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Accepter/Suivi des consultations/Fonctionnement {% endblock title %}
+
+{% block content %}
+
+   <html lang="en">
+ <!-- Required meta tags -->
+   <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+
+       <form method="post"  class="post-form" enctype="multipart/form-data">
+  {% csrf_token %}
+
+      <nav>
+       <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-lancement-tab" data-toggle="tab" href="#nav-lancement" role="tab" aria-controls="nav-lancement" aria-selected="true">Lancer une consultation</a>
+    <a class="nav-item nav-link" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="false">Mes documents</a>
+    <a class="nav-item nav-link" id="nav-envoyer-tab" data-toggle="tab" href="#nav-envoyer" role="tab" aria-controls="nav-envoyer" aria-selected="false">A Envoyer</a>
+       </div>
+    </nav>
+    
+   <div class="tab-content" id="nav-tabContent">
+       
+    <div class="tab-pane fade show active" id="nav-lancement" role="tabpanel" aria-labelledby="nav-lancement-tab">
+
+       <div class="row">
+	   <div class="col-12 grid-margin">    
+        <div class="card text-center">
+         <div class="card-body">
+          <h2 class="card-title">Suivi des consultations/Budget de fonctionnement</h2>
+           <form class="forms-sample">
+           
+           <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Observation d'ouverture</label>
+                  <div class="col-sm-8">
+                      <textarea class="form-control" id="exampleDésignation" rows="2"></textarea>
+                  </div>
+                 </div>
+                </div>    
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Date d'évaluation</label>
+                  <div class="col-sm-8">
+                    <div class="md-form md-outline input-with-post-icon datepicker">
+  					<input placeholder="Select date" type="date" id="example" class="form-control">
+				   </div>
+                  </div>
+                 </div>
+               </div>
+             </div>
+             
+             <div class="row">
+               <div class="col-md-6">
+                <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Observation d'évaluation</label>
+                  <div class="col-sm-8">
+                      <textarea class="form-control" id="exampleDésignation1" rows="2"></textarea>
+                  </div>
+                 </div>
+                </div> 
+               <div class="col-md-6">
+                <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Bordereau dossier</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+             </div>
+             
+              <div class="row">
+                <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Soumissionnaire retenu</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-6">
+                <div class="form-group row">
+                <label class="col-sm-4 col-form-label">En cas de désistement de soumissionnaire</label>
+                  <div class="col-sm-8">
+                      <textarea class="form-control" id="exampleDésignation2" rows="2"></textarea>
+                  </div>
+                 </div>
+                </div>
+               </div>
+              
+               <div class="row">
+                <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Lettre de désistement</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+               <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">N° de Contrat</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">PV Ouverture</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+               <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Système d'évaluation</label>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option>Système de notation</option>
+                      <option>Le moins Disant</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+             </div>  
+           
+             <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">PV Evaluation</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+             <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Autres Documents</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+               </div>
+               
+              <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Rapport de présentation</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+             <div class="col-md-6">
+                 <div class="form-group row">
+                 <label class="col-sm-4 col-form-label">Contrat</label>
+                 <div class="col-sm-8">
+                  <input type="file" name="file[]" class="file-upload-default">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Choisir un document">
+                 <span class="input-group-append">
+                  <button class="file-upload-browse btn btn-primary" type="button">Télécharger</button>
+                 </span>
+                 </div>
+                 </div>
+               </div>
+               </div>
+
+
+              <div class="row">
+              <div class="col-md-12">
+               <button type="submit" class="btn btn-primary btn-lg ">Enregistrer</button>
+               <button type="submit" class="btn btn-primary btn-lg">Modifier</button>
+              </div>
+            </div>
+            
+            
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+     </div>
+    
+
+   <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">...</div>
+  <div class="tab-pane fade" id="nav-envoyer" role="tabpanel" aria-labelledby="nav-envoyer-tab">...</div>
+  
+  </div>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="FonCon.html">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="FonCon.html">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+        </form>
+   </html>
+  {% endblock content %}
